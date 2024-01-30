@@ -24,8 +24,10 @@ function mostrarFallero($dni) {
     // Bucle para sacar datos de cada fallero: dni, nombre, apellidos, cuota, id_falla
     while ($fallero = $sqlFallero->fetch()) {
 
-        $fallero = new Fallero();
+        // Objeto fallero
+        $fallero = new Fallero($fallero['dni'], $fallero['nombre'], $fallero['apellidos'], $fallero['cuota'], $fallero['id_falla']);
 
+        // Array falleros
         $arrFalleros[] = $fallero;
     }
 

@@ -17,6 +17,46 @@ class Fallero {
         $this->id_falla = $id_falla;
     }
 
+    // Getters
+    function getDni() {
+        return $this->dni;
+    }
+    function getNombre() {
+        return $this->nombre;
+    }
+    function getApellidos() {
+        return $this->apellidos;
+    }
+
+    function getCuota() {
+        return $this->cuota;
+    }
+
+    function getIdFalla() {
+        return $this->id_falla;
+    }
+
+    // Setters
+    function setDni($dni) {
+        $this->dni = $dni;
+    }
+
+    function setNombre($nombre) {
+        $this->nombre = $nombre;
+    }
+
+    function setApellidos($apellidos) {
+        $this->apellidos = $apellidos;
+    }
+
+    function setCuota($cuota) {
+        $this->cuota = $cuota;
+    }
+
+    function setIdFalla($id_falla) {
+        $this->id_falla = $id_falla;
+    }
+
 }
 
 ?>
