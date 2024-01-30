@@ -20,7 +20,12 @@
 // Ver si hay datos del $_POST
 if(isset($_POST)) {
 
+    include ("ControladorFalleros.php");
+
     
+    $dni = $_POST[$dni];
+
+
 
 }
 
