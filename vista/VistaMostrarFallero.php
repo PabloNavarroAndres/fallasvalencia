@@ -12,34 +12,76 @@ VistaMostrarFallero
 CUERPO DE LA VISTA
 ------------------------------------------------------------------------------------------- -->
 
-<body>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostrar Fallero</title>
+    <style>
+        /* Titulo */
+        h1 {
+            background-color: #dddddd;
+        }
+
+        /* Estilo para la tabla */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        /* Estilo para las celdas de encabezado (th) */
+        th {
+            border: 2px solid #dddddd;
+            padding: 8px;
+            background-color: #f2f2f2;
+        }
+
+        /* Estilo para las celdas de datos (td) */
+        td {
+            border: 2px solid #dddddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        /* Mensaje de exito */
+        #msj_exito {
+            color: green;
+        }
+    </style>
 </head>
-<form action="fallero.php" method="POST">
+<body>
+
+<br><br>
+
+<form action="/fallasvalencia/fallero.php" method="POST">
     <label for="dni">DNI: </label>
     <input type="text" name="dni">
+    <input type="hidden" value="mostrar" name="accion">
 
     <input type="submit" value="Enviar">
 </form>
 
-<?php 
+<br><br>
 
-// Ver si hay datos del $_POST
-if(isset($_POST)) {
+<table border="1">
+    <tr>
+        <th>DNI</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Cuota</th>
+        <th>Id falla</th>
+    </tr>
+    <tr>
+        <?php 
+            if(isset($fallero)) { ?>
+            <td> <?php echo $fallero->getDni() ?> </td>
+            <td> <?php echo $fallero->getNombre() ?> </td>
+            <td> <?php echo $fallero->getApellidos() ?> </td>
+            <td> <?php echo $fallero->getCuota() ?> </td>
+            <td> <?php echo $fallero->getIdFalla() ?> </td>
+        <?php } ?>
+    </tr>
+</table>
 
-    include ("ControladorFalleros.php");
-
-
-    $dni = $_POST[$dni];
-
-
-
-}
-
-?>
     <!-- pie de la aplicación -->
     <?php require 'base/pie.php' ?>
 </body>
